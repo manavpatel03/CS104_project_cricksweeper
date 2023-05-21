@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: Maven-pro;
+    src: url(fonts/MavenPro-Regular.ttf);
+}

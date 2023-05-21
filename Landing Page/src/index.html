@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="../dist/output.css" rel="stylesheet" />
+  <link rel="stylesheet" href="input.css">
+  <style>
+    .separator-line {
+      border-right: 1px solid black;
+      border-left: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="width: 100vw; height: 20vh;" class="bg-gradient-to-r from-indigo-600 to-indigo-800 relative flex justify-center items-center">
+    <p class="text-center">
+      <h1 class="text-slate-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl" style="font-family: Maven-pro;">Welcome to CricSweeper!!</h1>
+    </p>
+  </div>
+  <div style="width: 100vw; height: 80vh" class="bg-indigo-200 relative flex justify-center items-center">
+    <div class="grid grid-cols-2 rounded-lg absolute left-1/3 bottom -1/3 bg-black opacity-30 hover:opacity-40 drop-shadow-lg border-2 hover:border-4 border-white hover:drop-shadow-2xl separator-line" style="width: 40vw; height: 50vh; padding-top: 2vh; padding-bottom: 2vh; padding-left: 2.5vw; padding-right: 2.5vw;">
+      <div style="width: 16vw; height: 46vh; color: white; padding-right: 1.5vw; padding-top: 3vh; padding-bottom: 3vh;">
+        <button id="Sp" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" style="width: 14vw; height: 14vh; margin-bottom: 2vh;">
+          <h1 class="text-3xl">Single Player</h1>
+        </button>
+        <p class="text-white text-sm text-xl text-center">Play against the computer based algorithm with the aim to score maxximum runs!!</p>
+      </div>
+      <div style="width: 16vw; height: 46vh; color: white; padding-top: 3vh; padding-bottom: 3vh; padding-left: 1.5vw">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" style="width: 14vw; height: 14vh; margin-bottom: 2vh;">
+          <h1 class="text-3xl">Double Player</h1>
+        </button>
+        <p class="text-white text-sm text-xl text-center">Challenge a friend in a game of cricsweeper to determine who's the best of all!!!</p>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  document.getElementById("Sp").addEventListener("click", () => {
+  location.href = "../../Login_page/index.html";
+
+  })
+</script>
+</html>
