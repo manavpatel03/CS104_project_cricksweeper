@@ -40,7 +40,7 @@
         align-items: center;
         justify-content: center;
         width: 300px;
-        height: 21s0px;
+        height: 280px; /* Updated height to accommodate the new input field */
         background-color: rgba(0, 0, 0, 0.9);
         border-radius: 10px;
         padding: 20px;
@@ -48,7 +48,9 @@
       }
 
       input[type="text"],
-      input[type="password"] {
+      input[type="password"],
+      input[type="number"] {
+        /* Added a new style for the number input field */
         width: 100%;
         padding: 10px;
         margin: 10px 0;
@@ -93,14 +95,22 @@
           placeholder="Password"
           id="pass"
         />
+        <input
+          placeholder="Grid Size(min 5, max 7)"
+          type="number"
+          name="gridSize"
+          id="gridSize"
+          min="5"
+          max="7"
+        />
         <input id="login-btn" type="submit" value="Log In" />
         <input type="submit" id="signup-btn" value="Sign Up" />
       </form>
     </div>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+      // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    </script>
+    <script type="module" src="login_script.js"></script>
   </body>
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-    // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-  </script>
-  <script type="module" src="login_script.js"></script>
 </html>
