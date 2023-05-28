@@ -17,8 +17,9 @@ for (let i = 0; i < n; i++) {
   for (let j = 0; j < n; j++) {
     const cell = document.createElement("div");
     cell.className = "cell hidden";
+    cell.style.height = "70px";
     cell.id = `(${String(i)},${String(j)})`;
-    cell.addEventListener("click", handleCellClick);
+    cell.addEventListener("mousedown", handleCellClick, { capture: true });
     gridContainer.appendChild(cell);
   }
 }
@@ -34,7 +35,7 @@ while (fielders_num > 0) {
     fielders_num--;
     const fielderCell = document.getElementById(`(${String(x)},${String(y)})`);
     fielderCell.classList.add("fielder");
-    fielderCell.innerHTML = "<h6>W</h6>";
+    fielderCell.innerHTML = "W";
   }
 }
 
@@ -48,18 +49,19 @@ for (let i = 0; i < n; i++) {
         if (r === 0) {
           cell.classList.add("powerup_0");
           cell.classList.add("runs");
-          cell.innerHTML = "<p>P</p>";
+          cell.innerHTML = "P";
         } else if (r === 1) {
           cell.classList.add("powerup_1");
           cell.classList.add("runs");
-          cell.innerHTML = "<p>P</p>";
+          cell.innerHTML = "P";
         } else if (r === 2) {
           cell.classList.add("powerup_2");
           cell.classList.add("runs");
-          cell.innerHTML = "<p>P</p>";
+          cell.innerHTML = "P";
         }
       } else {
-        cell.innerHTML = `<p>${String(runs)}</p>`;
+        // cell.innerHTML = `<p>${String(runs)}</p>`;
+        cell.innerHTML = `${String(runs)}`;
         cell.classList.add("runs");
         cell.classList.add(`${String(runs)}`);
       }
@@ -93,44 +95,83 @@ function handleCellClick(event) {
     if (cell.classList.contains("powerup_0")) {
       alert("FREE HIT!!!");
       free_hit = true;
+      double = false;
+      cell.classList.remove("powerup_0");
     } else if (cell.classList.contains("powerup_1")) {
       alert("NEXT HIT SCORE X 2 !!");
       double = true;
+      free_hit = false;
+      cell.classList.remove("powerup_1");
     } else if (cell.classList.contains("powerup_2")) {
       //fielder view
+      free_hit = false;
+      double = false;
       gridContainer.classList.add("show-fielders");
       setTimeout(() => {
         gridContainer.classList.remove("show-fielders");
       }, 1000);
+      cell.classList.remove("powerup_2");
     } else if (cell.classList.contains("1")) {
       if (double) {
+        cell.classList.remove("runs");
         score += 2;
         double = false;
-      } else score++;
+      } else {
+        score++;
+        cell.classList.remove("runs");
+      }
+      free_hit = false;
+      double = false;
       updateScore();
     } else if (cell.classList.contains("2")) {
       if (double) {
         score += 4;
+        free_hit = false;
         double = false;
-      } else score += 2;
+        cell.classList.remove("runs");
+      } else {
+        score += 2;
+        cell.classList.remove("runs");
+      }
+      free_hit = false;
+      double = false;
       updateScore();
     } else if (cell.classList.contains("3")) {
       if (double) {
         score += 6;
-        double = false;
-      } else score += 3;
+        cell.classList.remove("runs");
+      } else {
+        score += 3;
+        cell.classList.remove("runs");
+      }
+      free_hit = false;
+      double = false;
       updateScore();
     } else if (cell.classList.contains("4")) {
       if (double) {
+        cell.classList.remove("runs");
         score += 8;
         double = false;
-      } else score += 4;
+        free_hit = false;
+      } else {
+        score += 4;
+        cell.classList.remove("runs");
+      }
+      double = false;
       updateScore();
+      free_hit = false;
     } else if (cell.classList.contains("6")) {
       if (double) {
+        cell.classList.remove("runs");
         score += 12;
         double = false;
-      } else score += 6;
+        free_hit = false;
+      } else {
+        score += 6;
+        cell.classList.remove("runs");
+      }
+      double = false;
+      free_hit = false;
       updateScore();
     }
   } else if (cell.classList.contains("fielder")) {
@@ -148,9 +189,8 @@ function handleCellClick(event) {
         alert("out!! " + String(wicketsRemaining) + " wickets remain!!");
       }
     }
+    double = false;
   }
   // Disable further clicks on the cell
   cell.removeEventListener("click", handleCellClick);
 }
-
-document.getElementById("score").addEventListener("change", function () {});

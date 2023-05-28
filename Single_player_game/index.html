@@ -5,11 +5,105 @@
   <head>
     <title>Cricket Minesweeper</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <style>
+      .powerup {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+
+      .powerup .powerup-icon {
+        width: 30px;
+        height: 30px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 18px;
+        margin-right: 10px;
+      }
+      .p0 {
+        background-color: #f5d76e;
+      }
+      .p1 {
+        background-color: #f8a5c2;
+      }
+      .p2 {
+        background-color: #7f8c8d;
+      }
+      ul {
+        list-style: none; /* Remove default bullets */
+      }
+    </style>
   </head>
   <body>
     <h1>Cricket Minesweeper</h1>
     <h2>Score: <span id="score">0/0</span></h2>
     <div id="grid"></div>
+    <div style="padding-top: 5vh">
+      <h2>Instructions:</h2>
+      <ul>
+        <li>
+          Each box in the grid may have a fielder, runs to score, or a power-up.
+        </li>
+        <li>
+          Your goal is to avoid wickets and score the maximum amount of runs.
+        </li>
+        <li>
+          You have a total of 3 wickets to defend. If you lose all wickets, the
+          game will be over.
+        </li>
+      </ul>
+
+      <h2>Gameplay:</h2>
+      <ul>
+        <li>Left-click on a box to reveal its content.</li>
+        <li>
+          If the box contains runs, your score will increase based on the number
+          of runs (0 to 6).
+        </li>
+        <li>
+          If the box contains a power-up, a special effect will be triggered:
+        </li>
+        <ul>
+          <li class="powerup">
+            <div class="powerup-icon p0">P</div>
+            <div>
+              Power-up 0 (Free Hit): Grants you a free hit. The next hit won't
+              result in a wicket even if you hit a fielder.
+            </div>
+          </li>
+          <li class="powerup">
+            <div class="powerup-icon p1">P</div>
+            <div>
+              Power-up 1 (Double Hit): Doubles the score of your next hit. Make
+              the most of it!
+            </div>
+          </li>
+          <li class="powerup">
+            <div class="powerup-icon p2">P</div>
+            <div>
+              Power-up 2 (Fielder View): Temporarily reveals the locations of
+              fielders in the grid.
+            </div>
+          </li>
+        </ul>
+      </ul>
+
+      <h2>Tips:</h2>
+      <ul>
+        <li>Strategize your hits to avoid fielders and maximize your score.</li>
+        <li>Make use of power-ups wisely to gain an advantage.</li>
+        <li>
+          Take note of the locations of fielders when the Fielder View power-up
+          is triggered.
+        </li>
+      </ul>
+
+      <h2>Enjoy playing Cricket Minesweeper!</h2>
+    </div>
     <script type="module" src="script.js"></script>
   </body>
 </html>
