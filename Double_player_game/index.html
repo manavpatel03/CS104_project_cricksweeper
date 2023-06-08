@@ -1,0 +1,107 @@
+<html>
+  <head>
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="bootstrap.css" />
+    <script src="bootstrap.js"></script>
+    <title>Room creation</title>
+    <style>
+      input[type="text"] {
+        /* Added a new style for the number input field */
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: none;
+        color: black;
+        background-color: #f8f9fa;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        border-width: 10px;
+      }
+    </style>
+  </head>
+  <body class="bg-dark bg-gradient text-white">
+    <div
+      style="
+        position: absolute;
+        top: 5vh;
+        left: 15vw;
+        height: 20vh;
+        width: 70vw;
+        font-size: 70;
+        padding-top: 1vh;
+      "
+      class="border border-light bg-secondary bg-gradient text-white shadow-lg rounded text-center"
+    >
+      Enter your Name!!!
+    </div>
+    <div
+      style="
+        position: absolute;
+        top: 40vh;
+        left: 25vw;
+        height: 11vh;
+        width: 20vw;
+        padding-left: 1vw;
+        padding-right: 1vw;
+        padding-top: 1vh;
+      "
+      class="border border-light bg-secondary bg-gradient text-white shadow-lg rounded text-center"
+    >
+      <form id="signup-form">
+        <input
+          type="text"
+          name="player1"
+          placeholder="player1"
+          class="form-label bg-dark-subtle"
+          id="player1"
+        />
+      </form>
+    </div>
+    <div
+      style="
+        position: absolute;
+        top: 40vh;
+        right: 25vw;
+        height: 11vh;
+        width: 20vw;
+        padding-left: 1vw;
+        padding-right: 1vw;
+        padding-top: 1vh;
+      "
+      class="border border-light bg-secondary bg-gradient text-white shadow-lg rounded text-center"
+    >
+      <form id="signup-form">
+        <input
+          type="text"
+          name="player2"
+          placeholder="player2"
+          class="form-label bg-dark-subtle"
+          id="player2"
+        />
+      </form>
+    </div>
+    <div>
+      <form action="">
+        <input
+          type="button"
+          value="submit"
+          id="submit"
+          style="
+            height: 8vh;
+            width: 10vw;
+            position: absolute;
+            top: 60vh;
+            left: 45vw;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            border-width: 10px;
+          "
+        />
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

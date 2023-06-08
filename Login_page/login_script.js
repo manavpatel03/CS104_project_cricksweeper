@@ -26,6 +26,7 @@ function writeUserData(user, pass) {
     username: user,
     password: pass,
   });
+  alert("Now log in!!!");
 }
 
 function readUserData(user, pass) {
