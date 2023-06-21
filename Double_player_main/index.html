@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Goldman&display=swap"
+      rel="stylesheet"
+    />
     <style>
       .powerup {
         display: flex;
@@ -33,15 +39,35 @@
         list-style: none; /* Remove default bullets */
       }
     </style>
+    <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=\, initial-scale=1.0" />
     <title>Game</title>
   </head>
-  <body>
-    <h1>Cricket Minesweeper</h1>
-    <h2>Score: <span id="score">0/0</span></h2>
-    <div id="grid"></div>
-    <script src="script.js"></script>
+  <body style="background-color: #443266">
+    <div class="heading">
+      <h1 class="main_heading">Cricket Minesweeper</h1>
+    </div>
+    <div style="height: 1vh"><p></p></div>
+    <div class="score_p1">
+      <h2><span id="score_p1">0/0</span></h2>
+    </div>
+    <div class="score_p2">
+      <h2><span id="score_p2">0/0</span></h2>
+    </div>
+    <div class="flow_div">
+      <h2 class="flow"><span id="flow"></span></h2>
+    </div>
+    <div class="form_div">
+      <form action="" id="form" class="form">
+        <input type="button" value="Bat" id="bat" class="bat" />
+        <input type="button" value="Bowl" id="bowl" class="bowl" />
+      </form>
+    </div>
+    <h2><span id="score_p1"></span></h2>
+    <h2><span id="score_p2"></span></h2>
+    <div id="grid" style="left: 3vw"></div>
+    <script type="module" src="./script.js"></script>
   </body>
 </html>

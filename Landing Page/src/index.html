@@ -27,7 +27,7 @@
         <p class="text-white text-sm text-xl text-center">Play against the computer based algorithm with the aim to score maxximum runs!!</p>
       </div>
       <div style="width: 16vw; height: 46vh; color: white; padding-top: 3vh; padding-bottom: 3vh; padding-left: 1.5vw">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" style="width: 14vw; height: 14vh; margin-bottom: 2vh;">
+        <button id="Dp" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" style="width: 14vw; height: 14vh; margin-bottom: 2vh;">
           <h1 class="text-3xl">Double Player</h1>
         </button>
         <p class="text-white text-sm text-xl text-center">Challenge a friend in a game of cricsweeper to determine who's the best of all!!!</p>
@@ -39,6 +39,9 @@
   document.getElementById("Sp").addEventListener("click", () => {
   location.href = "../../Login_page/index.html";
 
+  });
+  document.getElementById("Dp").addEventListener("click", () => {
+    location.href = "../../Double_player_game/index.html";
   })
 </script>
 </html>

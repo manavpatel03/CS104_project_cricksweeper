@@ -32,7 +32,6 @@ function readUserData() {
         alert("ERROR!!\n PLEASE TRY AGAIN LATER");
       } else if (snapshot.exists()) {
         userScores = snapshot.val();
-        console.log(userScores);
       }
     })
     .then(() => {

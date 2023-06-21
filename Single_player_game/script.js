@@ -34,14 +34,18 @@ function readUserData(user) {
   const dbRef = ref(getDatabase());
   get(child(dbRef, n + "/" + user))
     .then((snapshot) => {
+      console.log("trial");
       if (snapshot.exists() == false) {
+        console.log("for trial");
         writeUserData(name, localStorage.score);
       } else {
         if (parseInt(snapshot.val().score, 10) >= localStorage.score) {
           alert("your previous best was : " + snapshot.val().score);
+          console.log(snapshot.val().score);
         } else {
           alert("your new best is : " + localStorage.score);
           writeUserData(name, localStorage.score);
+          console.log(snapshot.val().score);
         }
       }
     })
@@ -86,7 +90,16 @@ while (fielders_num > 0) {
     fielderCell.innerHTML = "W";
   }
 }
-
+const loadingElement = document.createElement("div");
+loadingElement.innerHTML = "Loading...";
+loadingElement.style.position = "fixed";
+loadingElement.style.top = "50%";
+loadingElement.style.left = "50%";
+loadingElement.style.transform = "translate(-50%, -50%)";
+loadingElement.style.backgroundColor = "white";
+loadingElement.style.padding = "20px";
+loadingElement.style.borderRadius = "5px";
+loadingElement.style.boxShadow = "0 2px 5px rgba(0, 0, 0, 0.3)";
 for (let i = 0; i < n; i++) {
   for (let j = 0; j < n; j++) {
     const cell = document.getElementById(`(${String(i)},${String(j)})`);
@@ -237,10 +250,12 @@ function handleCellClick(event) {
         // Game over, show score
         cell.classList.remove("hidden");
         localStorage.setItem("score", score);
-        alert("name : " + name);
         readUserData(name);
         alert("Game Over! Final Score: " + score);
-        location.href = "../Leaderboard/index.html";
+        document.body.appendChild(loadingElement);
+        setTimeout(() => {
+          location.href = "../Leaderboard/index.html";
+        }, 5000);
       } else {
         alert("out!! " + String(wicketsRemaining) + " wickets remain!!");
       }
